@@ -2,7 +2,7 @@
 
 ## Data Selfie
 
-![data_selfie](data_selfie.jpg|width=100)
+![data_selfie](data_selfie.jpg)
 
 ## Introduction
 
