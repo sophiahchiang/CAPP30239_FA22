@@ -2,7 +2,7 @@
 
 ## Data Selfie
 
-![data_selfie](https://user-images.githubusercontent.com/67343609/193281720-8e75f3a2-b5ed-40a1-bade-503e70b36e73.jpg|width=100)
+![data_selfie](data_selfie.jpg)
 
 
 ## Introduction
