@@ -4,4 +4,8 @@
 
 This repository contains coursework for the CAPP 30239 class taught in Fall 2022. 
 
+## Week 1
+
+* Designed our data selfies
+* Began learning JS 
 
