@@ -16,4 +16,5 @@ Data source: Spotify, spotify.com
 
 The homework.js and homework.html files which I wrote on my own, referencing the work we did in class previously. These files generate the following scalable image: 
 
-![homework_graph](homework_graph.jpg)
+
+<img width="765" alt="Screen Shot 2022-10-17 at 5 05 24 PM" src="https://user-images.githubusercontent.com/67343609/196293519-beef4718-02fd-4a61-9feb-a19281ff66be.png">
