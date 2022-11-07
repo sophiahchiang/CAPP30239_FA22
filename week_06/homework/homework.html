@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importing Observable Code Snippet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Assistant', sans-serif;
+        }
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Chart 1: Timeline</h1>
+        <p>
+        I was interested in whether there was any relationship betwen the season
+        and the number of deaths. I was able to examine this 
+        trend by graphing number of deaths over time. Consistent with my hypothesis, 
+        we see that there is a rise in number of deaths as it gets warmer, 
+        during the months of April through May. However because we are only looking at
+        data pulled from 2015 we have no idea whether this is a fluke or whether 
+        the trend holds up across multiple years. The decrease we see in the below
+        line graph from September onwards could be a decrease that continues 
+        throughout 2016 even as the weather changes. 
+        </p>
+        <div id="chart"></div>
+    </div>
+    <div class="chart">
+          <script src="https://d3js.org/d3.v7.min.js"></script>
+          <script src="chart_01.js"></script>
+    </div>
+
+    <div class="container">
+        <h1>Chart 2: Age Distribution</h1>
+        <p>
+        This chart illustrates the age distribution of those who were shot 
+        in 2015. I chose to use a histogram because it is a concise way of
+        examining this data point. It is easy to tell where the bulk
+        of the people are. Most fall within the ages of 25 and 35. After that, 
+        the number of people shot begins to decrease in a fairly linear fashion
+        which is interesting. In other words, it seems that the older you are, 
+        the less likely you are to be shot. This correlation is not unexpected.
+        It might also be useful to have an idea of the criminal history of each 
+        person included in this data set in order to shed light on why it 
+        is that the bulk of people shot fall into the specified age range. Perhaps
+        people in that younger age bracket tend to engage in more illicit or dangerous
+        acitivities which increases the likelihood of them being killed.
+        </p>
+        <div id="chart"></div>
+    </div>
+
+    <div class="chart">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="chart_02.js"></script>
+    </div>
+
+    <div class="container">
+        <h1>Chart 3: Race Breakdown</h1>
+        <p>
+        This pie chart shows us the race breakdown of the 2015 sample. I was curious 
+        to see whether a certain group was more prominently represented,
+        and it turns out that White people make up almost half of the entire sample.
+        I wonder if this is a product of overall population trends—in other words 
+        is it because the population in the US is predominantly White
+        that more White people were shot relative to any other race? We can attempt to address this question
+        by comparing the race breakdown of this sample size of people shot with the 
+        greater race breakdown of the US at the time this sample was taken, in 2015.
+        </p>
+        <div id="chart"></div>
+    </div>
+    
+    <div class="chart">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="chart_03.js"></script>
+    </div>
+
+</body>
+</html>
