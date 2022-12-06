@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        font-family: "Assistant", sans-serif;
+      }
+      .container {
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>What do our ears like?</h1>
+      <h4>An exploration of musical preference via Spotify's API</h4>
+      <div class="item">
+        <h2>Features by Playlist</h2>
+      </div>
+      <div class="container">
+        <select id="selectBox" onchange="update(value);">
+          <option value="Viral50USA">Viral50USA</option>
+          <option value="Top50USA">Top50USA</option>
+          <option value="Are&Be">Are&Be</option>
+          <option value="HotCountry">HotCountry</option>
+          <option value="mint">mint</option>
+          <option value="NewMusicFriday">NewMusicFriday</option>
+          <option value="RapCaviar">RapCaviar</option>
+          <option value="RockThis">RockThis</option>
+          <option value="Today'sTopHits">Today'sTopHits</option>
+          <option value="Top50Global">Top50Global</option>
+          <option value="Viral50Global">Viral50Global</option>
+          <option value="VivaLatino">VivaLatino</option>
+        </select>
+        <div id="chart2" class="flex-item chart"></div>
+        <p>
+          The below is a plot of each of the playlists and its corresponding
+          average energy level.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis odit
+          impedit odio illo. Incidunt soluta, maiores natus quam illo nulla
+          cumque numquam et tempore eum! Tempore soluta repellendus natus atque.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis odit
+          impedit odio illo. Incidunt soluta, maiores natus quam illo nulla
+          cumque numquam et tempore eum! Tempore soluta repellendus natus atque.
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Features Evolution over Time</h2>
+    </div>
+    <div class="container">
+      <div id="chart3" class="item chart"></div>
+      <div class="item">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis odit
+          impedit odio illo. Incidunt soluta, maiores natus quam illo nulla
+          cumque numquam et tempore eum! Tempore soluta repellendus natus atque.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Officiis odit impedit
+          odio illo. Incidunt soluta, maiores natus quam illo nulla cumque
+          numquam et tempore eum! Tempore soluta repellendus natus atque.
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Genres in Different Countries (weights)</h2>
+    </div>
+
+    <div class="container">
+      <div id="chart4" class="chart"></div>
+    </div>
+
+    <div class="container">
+      <h2>Genres in Different Countries (average streams)</h2>
+    </div>
+
+    <div class="container">
+      <div id="chart5" class="chart"></div>
+    </div>
+
+    <div class="container">
+      <div id="au_pie_chart" class="chart"></div>
+    </div>
+
+    <div class="container">
+      <div id="br_pie_chart" class="chart"></div>
+    </div>
+
+    <div class="container">
+      <div id="stacked_bar" class="chart"></div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.js"></script>
+    <script src="chart2.js"></script>
+    <script src="chart3.js"></script>
+    <script src="chart4.js"></script>
+    <script src="chart5.js"></script>
+    <script src="au_pie_chart.js"></script>
+    <script src="br_pie_chart.js"></script>
+    <script src="stacked_bar.js"></script>
+  </body>
+</html>

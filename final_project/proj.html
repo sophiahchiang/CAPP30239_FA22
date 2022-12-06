@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transforming Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="color: #f17b4b">What do our ears like?</h1>
+      <h2>An exploration of musical preference using Spotify's API</h2>
+      <div class="container">
+        <p>
+          Spotify has tagged songs with different features, such as danceability
+          or energy, which we can leverage to shed light on this question. I am
+          curious to understand not only what makes songs appealing to the
+          majority of the United States population, but also how song features
+          are distributed across the world and over time. The evolution of music
+          taste is a product of not only our innovative spirit, but also
+          cultural and historical influence. Using the data obtained by
+          Spotify’s API, we will be able to identify patterns in musical
+          preference.
+        </p>
+      </div>
+      <div class="container">
+        <h2>Features by Popular Playlist</h2>
+        <div>
+          <select id="selectBox" onchange="update(value);">
+            <option value="Viral50USA">Viral50USA</option>
+            <option value="Top50USA">Top50USA</option>
+            <option value="Are&Be">Are&Be</option>
+            <option value="HotCountry">HotCountry</option>
+            <option value="mint">mint</option>
+            <option value="NewMusicFriday">NewMusicFriday</option>
+            <option value="RapCaviar">RapCaviar</option>
+            <option value="RockThis">RockThis</option>
+            <option value="Today'sTopHits">Today'sTopHits</option>
+            <option value="Top50Global">Top50Global</option>
+            <option value="Viral50Global">Viral50Global</option>
+            <option value="VivaLatino">VivaLatino</option>
+          </select>
+        </div>
+        <div id="chart2" class="flex-item chart"></div>
+      </div>
+      <div class="container">
+        <p>
+          In order to derive meaning from this chart, you must first understand
+          each one of the x axis features. I go through each of them below, but
+          more information can be found in Spotify’s documentation web-api
+          reference
+          <a
+            href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-several-audio-features"
+            >here.</a
+          >
+        </p>
+        <ul style="list-style-type: disc">
+          <li>
+            <b>Danceability</b> describes how suitable a track is for dancing
+            based on a combination of musical elements including tempo, rhythm
+            stability, beat strength, and overall regularity. A value of 0.0 is
+            least danceable and 1.0 is most danceable.
+          </li>
+
+          <li>
+            <b>Acousticness</b> is a measure from 0.0 to 1.0 of whether the
+            track is acoustic.
+          </li>
+
+          <li>
+            <b>Energy</b> is a measure from 0.0 to 1.0 and represents a
+            perceptual measure of intensity and activity. Typically, energetic
+            tracks feel fast, loud, and noisy.
+          </li>
+
+          <li>
+            <b>Instrumentalness</b> predicts whether a track contains no vocals.
+            The closer the instrumentalness value is to 1.0, the greater
+            likelihood the track contains no vocal content.
+          </li>
+
+          <li>
+            <b>Liveness</b> detects the presence of an audience in the
+            recording. Higher liveness values represent an increased probability
+            that the track was performed live.
+          </li>
+
+          <li>
+            <b>Speechiness</b> detects the presence of spoken words in a track.
+            The more exclusively speech-like the recording (e.g. talk show,
+            audio book, poetry), the closer to 1.0 the attribute value.
+          </li>
+
+          <li>
+            <b>Valence</b> is a measure from 0.0 to 1.0 describing the musical
+            positiveness conveyed by a track. Tracks with high valence sound
+            more positive (e.g. happy, cheerful, euphoric), while tracks with
+            low valence sound more negative (e.g. sad, depressed, angry).
+          </li>
+
+          <li>
+            <b>Mode</b> indicates the modality (major or minor) of a track, the
+            type of scale from which its melodic content is derived. Major is
+            represented by 1 and minor is 0.
+          </li>
+        </ul>
+        <p style="color: #f17b4b">
+          <b
+            >However, have these trends held up over time? Do the popular
+            playlists that we enjoy now have anything in common with music of
+            the past?</b
+          >
+        </p>
+      </div>
+      <div class="container">
+        <h2>Popular Features over Time</h2>
+        <div id="chart3"></div>
+        <div class="container">
+          This second graphic depicts the evolution of features over time. Each
+          data point in the line graph is the average feature value taken from
+          an aggregated 500 songs released in the given year. While there are
+          only a few distinct developments, the absence of heavy oscillation is
+          a fascinating finding in and of itself. Surprisingly, it doesn’t
+          actually look like features of popular music in the United States have
+          changed that significantly over time. Even though on the surface it
+          might seem like the music people were listening to in the 80s is
+          drastically different from what’s on the radio today, the lack of any
+          definite trends in this chart suggests that our hidden musical
+          preferences are fairly consistent. However, I would like to highlight
+          some interesting trends in this data that are consistent with real
+          cultural and economic shifts.
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item">
+          <h3>Speechiness Has Increased</h3>
+          <p>
+            First, notice how speechiness has gradually increased over the last
+            30 years. Speechiness is a particularly prominent feature in rap
+            songs, where, as the term might suggest, the melody tends to be
+            speech-like.
+            <a
+              href="https://en.wikipedia.org/wiki/Hip_hop_music#:~:text=Hip%20hop%20became%20a%20best,selling%20music%20genre%20by%201999"
+              >Hip hop</a
+            >
+            became a best-selling genre in the mid-1990s and a top-selling music
+            genre in 1999. Since then, its popularity has only continued to
+            grow.
+          </p>
+        </div>
+        <div class="flex-item">
+          <h3>Valence Has Decreased</h3>
+          <p>
+            The second, and perhaps most notable piece of this graph is the
+            valence line. As described earlier, valence is a metric that
+            describes how happy sounding a given track is. A high valence value
+            means that the track sounds more positive, a low valence value means
+            that it sounds more negative. Only over the last two decades or so,
+            the average valence of the music we consume has dropped
+            significantly. Having gone from 0.6 to almost 0.4, this 33% valence
+            drop indicates that the music we listen to now sounds much more sad,
+            a finding substantiated by an article put out by the Washington
+            Post:
+            <a
+              href="https://www.washingtonpost.com/blogs/ezra-klein/post/pop-music-keeps-getting-sadder-and-sadder/2012/05/31/gJQAMAkz4U_blog.html"
+              >“Pop music keeps getting sadder and sadder.”</a
+            >
+          </p>
+        </div>
+        <div class="flex-item">
+          <h3>Liveness Remains Constant</h3>
+          <p>
+            This chart also sheds light on the manner in which music was
+            performed and distributed. The liveness of popular music has
+            remained at almost the exact same level since the 80s. This means
+            that the proportion of tracks available on Spotify that were
+            recorded during a live performance has stayed the same. However, it
+            is interesting to note that in 2020 the liveness value
+            plummeted—perhaps an effect of COVID. Thanks to the pandemic,
+            <a
+              href="https://www.weforum.org/agenda/2020/05/this-is-how-covid-19-is-affecting-the-music-industry/"
+              >no one was performing live</a
+            >
+            so it makes sense that the liveness value shot down.
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <p style="color: #f17b4b">
+          <b
+            >Why has music gotten more negative? Are we more depressed? Have we
+            just come to enjoy sad music more than the lively tracks of the 80s?
+            Are artists now making sadder music?</b
+          >
+        </p>
+        <p>
+          Lower valence music is often correlated with emotional complexity and
+          ambivalent feelings. In a paper published by Schellenberg and Scheve,
+          they posit that the shift towards sadder sounding songs is linked to
+          rising levels of individualization in this modern age. Increasing
+          individualization has led to the creation of many subjective
+          identities, that are independent of social status, occupation, sex,
+          etc. Consequently, the way that one might perceive themselves and the
+          way that they are perceived by society is more complicated and
+          ambiguous. One might argue that the increase in the number of
+          emotional dimensions captured by, and experienced through, popular
+          music parallels social and cultural change. If this holds up, it would
+          make sense to see an increase in the types of music available. In
+          other words, were music to reflect a higher degree of individuality,
+          the range music itself would need to expand. But is this true? Is
+          popular music more diverse now than it has been? We can answer this
+          question with the pie charts below.
+        </p>
+      </div>
+
+      <h2>United States Music Genre Preferences (weighted)</h2>
+
+      <div class="flex-container">
+        <div class="flex-item">
+          <p>
+            The chart to the right is the genre breakdown in the United States
+            in 2020. There are so many more genres and subgenres than I've had
+            the space to represent on this graph, including dancehall, easy
+            listening, emo, celtic, azonto, and something called adult
+            standards. I pared the number of genres down for the sake of
+            readability, but the original dataset had more than 100. It is
+            interesting to note that hip hop and rap are more popular genres
+            today than pop or pop rap.
+          </p>
+        </div>
+        <div id="us_pie_chart" class="chart"></div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item">
+          <p>
+            The chart to the right is the genre breakdown in the United States
+            in 1980. As you can tell, this pie's categories are larger. Even
+            though the genres are different than the genres we see in the 2020
+            pie, music in the 80s in the United States overall could be divided
+            into larger chunks which leads you to believe that in fact, music
+            was less variable back in the day. In line with the dicussion above,
+            the variety of music available and listened to in the United States
+            has expanded significantly.
+          </p>
+        </div>
+        <div id="us_pie_chart_80s" class="chart"></div>
+      </div>
+      <div class="container">
+        <p style="color: #f17b4b">
+          <b
+            >Is the music that the rest of the world listens to similarly
+            diverse?</b
+          >
+        </p>
+      </div>
+      <div class="container">
+        <h2>Genre Breakdown from Around the World</h2>
+        <p>
+          In the top row from left to right we have donut genre graphs from
+          Brazil, Canada, Australia, Denmark. The graphs on the bottom row from
+          left to right represent France, Great Britain, Japan, and last but not
+          least the United States. It is clear that there are differences across
+          each country, although there is also a good deal of unexpected
+          overlap. For example, even though the United States is not a Latin
+          American country, a good chunk of the popular music in the states
+          right now can be categorized as Latin. Similarly , according to
+          Spotify’s data,
+          <a href="https://en.wikipedia.org/wiki/Reggaeton">reggaeton</a>, a
+          style of music that originated in Panama and is very popular in
+          Spanish-speaking countries, is very popular across the globe. Pop, rap
+          and hip hop tend to be the consistent winners in every country.
+        </p>
+      </div>
+      <div class="flex-container">
+        <div id="br_pie_chart" class="flex-item"></div>
+        <div id="ca_pie_chart" class="flex-item"></div>
+        <div id="au_pie_chart" class="flex-item"></div>
+        <div id="de_pie_chart" class="flex-item"></div>
+      </div>
+      <div class="flex-container">
+        <div id="fr_pie_chart" class="flex-item-chart"></div>
+        <div id="gb_pie_chart" class="flex-item-chart"></div>
+        <div id="jp_pie_chart" class="flex-item-chart"></div>
+        <div id="us_donut" class="flex-item-chart"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>My Process</h2>
+      <p>
+        I am interested in this topic because music is one of my favorite
+        things. I grew up surrounded by music and it has only become a bigger
+        and bigger part of my life. Although there are many music streaming
+        platforms, I opted to use Spotify because it is the one I use and am
+        most familiar with. Moreover, it has a robust API and is the most
+        popular global streaming platform, followed closely by Apple Music and
+        Amazon Music. I was curious to understand what sorts of trends exist
+        within Spotify playlists and whether certain types of music are more
+        strongly represented on the Spotify platform as a whole. I was also
+        interested in characteristics such as the distribution of Spotify
+        playlist length, musical trends over time, averaged musical preferences,
+        and how my personal music taste fit into this grander picture.
+      </p>
+      <p>
+        Ultimately, using Spotify’s API was more difficult than I had
+        anticipated. I leveraged Spotipy for this project which is a lightweight
+        Python library for the Spotify Web API. To use Spotipy, I obtained the
+        requisite Spotipy_Client_ID (cid) and Spotipy_Client_Secret (secret)
+        variables. Setting up my environment was fairly straightforward.
+        However, getting the data that I was interested in proved to be a more
+        convoluted process. The only way that you can get the features of each
+        track is to first find each one’s unique ID. For example, for the first
+        graph which characterizes popular spotify playlists based on their
+        features, I had to first use the get_playlist api method. This allowed
+        me to retrieve all playlists with the desired “toplist” quality, and
+        save their corresponding IDs. Using this list of playlist IDs, I then
+        used another api method to retrieve all of the songs, and each song’s
+        ID, in each one of these playlists. With the song IDs, I was finally
+        able to leverage Spotify’s get_audio_features method to obtain the
+        feature composition of each song. Taking the average of each feature
+        over all of the songs in a given playlist left me with the desired
+        dataset: a set of features for the most popular playlists. For the other
+        graphs, I went through a similar process where I had to use Spotify’s
+        search feature first in order to get IDs, then stick all IDs in a python
+        dictionary so as to retain the other variables of interest (year,
+        playlist, etc), then use the IDs to get features, then iterate through
+        those features to store them in a usable dataframe. Suffice it to say
+        this was a much more involved data acquisition process than I’d
+        imagined. In addition, because each of these methods requires hundreds
+        of API requests, the completion time for this program is fairly slow. I
+        wanted as comprehensive of a dataset as I could get, so I chose to max
+        out the number of Spotify API calls. For example, for every year between
+        1980 and 2020, I requested 950 tracks in hopes that the aggregate data
+        will be representative of a given year’s listening trends.
+      </p>
+      <p>
+        Not only was the acquisition of the data a bit complicated, in order to
+        create the graphs that I wanted to, I had to reformat the data in
+        various different ways. The d3.js documentation that was available
+        online was useful insofar as the actual charts were concerned, but I had
+        to figure out how to transform my data so that it could be used in the
+        desired context. I took advantage of the Pandas package in Python to
+        make this easier.
+      </p>
+      <p>
+        I chose to include the charts that you see here because I was interested
+        in what they would show. I was curious to understand whether there would
+        be trends across time and across popular music. The following graphs
+        were an effective way to find the answers to these questions. They
+        allowed me to gain insight from the copious amounts of dense data I’d
+        extracted from Spotify. I also thought that they were fairly easy to
+        approachable and wouldn’t overwhelm the viewer. Had I had more time and
+        experience, I would have liked to include more information on a given
+        graph. For instance, in the first graph that depicts the feature
+        compositions of various popular playlists, I wanted the bars to smoothly
+        rearrange themselves in order of least to greatest each time the user
+        changed the playlist. I struggled with this feature for hours, but
+        eventually had to move on because I couldn’t figure out how to
+        incorporate multiple transitions. Throughout the course of this project,
+        I did feel limited in my knowledge of d3’s interactivity features.
+      </p>
+    </div>
+    <div class="container">
+        <h2>Links to Useful References</h2>
+        <p>
+            <ul style="list-style-type: disc">
+                <li>'https://program.ismir2020.net/poster_5-13.html'
+                </li>
+                <li>https://towardsdatascience.com/is-my-spotify-music-boring-an-analysis-involving-music-data-and-machine-learning-47550ae931de</li>
+                <li>https://developer.spotify.com/documentation/web-api/reference/#/</li>
+                <li>https://www.utm.utoronto.ca/~w3psygs/SchellenbergVonScheve2012.pdf</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="container"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="chart2.js"></script>
+    <script src="chart3.js"></script>
+    <script src="us_pie_chart.js"></script>
+    <script src="us_pie_chart_80s.js"></script>
+    <script src="br_pie_chart.js"></script>
+    <script src="ca_pie_chart.js"></script>
+    <script src="au_pie_chart.js"></script>
+    <script src="de_pie_chart.js"></script>
+    <script src="fr_pie_chart.js"></script>
+    <script src="gb_pie_chart.js"></script>
+    <script src="jp_pie_chart.js"></script>
+    <script src="us_donut.js"></script>
+  </body>
+</html>
